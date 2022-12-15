@@ -8,11 +8,17 @@
 </head>
 <body>
     <?php 
-        include('../helper/current_user.php');
-        if (current_user()) {
+        include('../../helper/current_user.php');
+        if (isset($_COOKIE["user_id"])) {
             echo 'Sign in successfully~~!!';
+            echo '
+                <form action="../../controllers/logout.php" action="GET">
+                    <input type="submit" value="Logout">
+                </form>
+            ';
         }
         else {
+            echo '<a href="./login.php">Login</a> <br>';
             echo 'Please try again';
         }
     ?>
